@@ -6,7 +6,7 @@
 #    By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/26 13:02:39 by antmoren          #+#    #+#              #
-#    Updated: 2022/12/26 22:03:53 by antmoren         ###   ########.fr        #
+#    Updated: 2022/12/27 12:47:16 by antmoren         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,9 @@ SRC_PATH 	= 	src/
 OBJ_PATH 	= 	obj/
 
 
-SRC		= main.c \
+SRC			= 	main.c 			\
+				check-input.c 	\
+				utils.c 		\
 
 SRCS	= $(addprefix $(SRC_PATH), $(SRC))
 OBJ		= $(SRC:.c=.o)
