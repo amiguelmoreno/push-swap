@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/26 13:02:32 by antmoren          #+#    #+#             */
-/*   Updated: 2022/12/28 21:44:13 by antmoren         ###   ########.fr       */
+/*   Created: 2022/12/28 21:46:28 by antmoren          #+#    #+#             */
+/*   Updated: 2022/12/28 22:02:32 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+t_stack	*fill_stack(int argc, char **argv)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-	int		stack_size;
+	t_stack		*stack_a;
+	long int	nb;
+	int			i;
 
-	(void)argv;
-	if (argc < 2)
-		return (0);
-	if (!is_correct_input(argv))
-		exit_error(NULL, NULL);
-	stack_b = NULL;
-	stack_a = fill_stack(argc, argv);
-	stack_size = get_stack_size(stack_a);
-	return (0);
+	stack_a = NULL;
+	nb = 0;
+	i = 1;
+	while (i < argc)
+	{
+		nb = ft_atoi(argv[i]);
+		if (nb > INT_MAX || nb < INT_MIN)
+			exit_error(&stack_a, NULL);
+		if (i == 1)
+			stack_a = stack_new((int)nb);
+		else
+			stack_add_bottom(&stack_a, stack_new((int)nb));
+		i++;
+	}
+	return (stack_a);
 }

@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:08:27 by antmoren          #+#    #+#             */
-/*   Updated: 2022/12/27 13:48:41 by antmoren         ###   ########.fr       */
+/*   Updated: 2022/12/28 11:37:18 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,10 @@ int	is_correct_input(char **av)
 		i++;
 	}
 	if (nb_zeros > 1)
+	{
 		return (0);
+	}
 	if (have_duplicates(av))
-		exit_error(NULL, NULL);
-	return (0);
+		return (0);
+	return (1);
 }

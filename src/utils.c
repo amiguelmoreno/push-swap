@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:21:11 by antmoren          #+#    #+#             */
-/*   Updated: 2022/12/27 13:42:29 by antmoren         ###   ########.fr       */
+/*   Updated: 2022/12/28 11:22:03 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ int	is_sign(char c)
 
 int	nbstr_cmp(const char *s1, const char *s2)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = i;
