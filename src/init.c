@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 21:46:28 by antmoren          #+#    #+#             */
-/*   Updated: 2022/12/28 22:02:32 by antmoren         ###   ########.fr       */
+/*   Updated: 2022/12/29 11:42:52 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,33 @@ t_stack	*fill_stack(int argc, char **argv)
 		i++;
 	}
 	return (stack_a);
+}
+
+void	add_index(t_stack *stack_a, int stack_size)
+{
+	t_stack	*ptr;
+	t_stack	*highest;
+	int		value;
+
+	while (--stack_size > 0)
+	{
+		ptr = stack_a;
+		value = INT_MIN;
+		highest = NULL;
+		while (ptr)
+		{
+			if (ptr->value == INT_MIN && ptr->index == 0)
+				ptr->index = 1;
+			if (ptr->value > value && ptr->index == 0)
+			{
+				value = ptr->value;
+				highest = ptr;
+				ptr = stack_a;
+			}
+			else
+				ptr = ptr->next;
+		}
+		if (highest != NULL)
+			highest->index = stack_size;
+	}
 }
