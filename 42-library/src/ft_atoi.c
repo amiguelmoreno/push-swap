@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 14:04:58 by antmoren          #+#    #+#             */
-/*   Updated: 2022/05/06 09:55:48 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/01/08 11:24:11 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	ft_atoi(const char *str)
 	nb *= c_minus;
 	return (nb);
 }
+
 /*
 int	main(int argc, char **argv)
 {

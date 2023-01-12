@@ -6,68 +6,91 @@
 #    By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/26 13:02:39 by antmoren          #+#    #+#              #
-#    Updated: 2022/12/29 19:25:08 by antmoren         ###   ########.fr        #
+#    Updated: 2023/01/12 15:02:39 by antmoren         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 		=	push_swap
+NAME 			=	push_swap
 
-42LIBRARY	= 	42-library
-CC			=	gcc
-CFLAGS		=	-Wall -Wextra -Werror
-RM			=	/bin/rm -rf
-AR			= 	ar -rcs
-RANLIB		= 	ranlib
-INCS		= 	-I includes/
+42LIBRARY		= 	42-library
+CC				=	gcc
+CFLAGS			=	-Wall -Wextra -Werror
+CHECKER_NAME	= 	checker
+RM				=	/bin/rm -rf
+AR				= 	ar -rcs
+RANLIB			= 	ranlib
+INCS			= 	-I includes/
 
-SRC_PATH 	= 	src/
-OBJ_PATH 	= 	obj/
+SRC_PATH 		= 	./src/
+OBJ_PATH 		= 	./obj/
 
+SRCS			= 	main.c 						\
+					tools/check_input.c 		\
+					tools/utils.c 				\
+					tools/stack_utils.c			\
+					tools/init.c 				\
+					movements/push.c 			\
+					movements/swap.c 			\
+					movements/rotate.c 			\
+					movements/reverse_rotate.c 	\
+					sort/sort_small.c 			\
+					tools/position.c 			\
+					sort/sort_big.c 			\
+					tools/cost.c 				\
+					movements/make_move.c 		\
 
-SRC			= 	main.c 				\
-				check-input.c 		\
-				utils.c 			\
-				stack-utils.c		\
-				init.c 				\
-				push.c 				\
-				swap.c 				\
-				rotate.c 			\
-				reverse_rotate.c 	\
-				sort_small.c 		\
-				sort_big.c 			\
+SRCS_CHECKER	= 	checker.c 					\
+					tools/check_input.c 		\
+					tools/utils.c 				\
+					tools/stack_utils.c			\
+					tools/init.c 				\
+					movements/push.c 			\
+					movements/swap.c 			\
+					movements/rotate.c 			\
+					movements/reverse_rotate.c 	\
+					sort/sort_small.c 			\
+					tools/position.c 			\
+					sort/sort_big.c 			\
+					tools/cost.c 				\
+					movements/make_move.c 		\
 
+OBJS = $(addprefix $(OBJ_PATH), $(SRCS:.c=.o))
 
-SRCS	= $(addprefix $(SRC_PATH), $(SRC))
-OBJ		= $(SRC:.c=.o)
-OBJS	= $(addprefix $(OBJ_PATH), $(OBJ))
+CHECKER_OBJS = $(addprefix $(OBJ_PATH), $(SRCS_CHECKER:.c=.o))
 
-all: $(OBJ_PATH) $(NAME) 
+all: lib $(OBJ_PATH) $(NAME) 
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
-	@$(CC) $(CFLAGS) -c $< -o $@ $(INCS)
+	@$(CC) $(CFLAGS) $(INCS) -I $(42LIBRARY) -c $< -o $@
 
-$(OBJ_PATH):
+$(OBJ_PATH): 
 	@mkdir $(OBJ_PATH)
+	@mkdir $(OBJ_PATH)/tools
+	@mkdir $(OBJ_PATH)/movements
+	@mkdir $(OBJ_PATH)/sort
 
-$(NAME): $(42LIBRARY) $(OBJS)
-	@make -C $(42LIBRARY)
+$(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) 42-library/42lib.a -o $(NAME)
 	@echo "\n 📊 push_swap compiled! ✅"
 
-# Clean all the output files (*.o)
+bonus: lib $(CHECKER_OBJS)
+	@$(CC) $(CFLAGS) $(CHECKER_OBJS) 42-library/42lib.a -o $(CHECKER_NAME)
+	@echo "\n 📊 push_swap bonus compiled! ✅"
+
+lib: 
+	@make -C $(42LIBRARY)
+
 clean: 
-	@$(RM) $(OBJ_PATH)
+	@$(RM) $(OBJ_PATH) $(CHECKER_OBJS)
 	@make clean -C $(42LIBRARY)
 	@echo "\n 📊 push_swap executable files removed! 🗑"
 
-# Clean all the output files (*.o) and the library file
 fclean: clean
 	@make fclean -C $(42LIBRARY)
 	@$(RM) $(NAME)
 	@echo "\n 📊 push_swap generated files removed! 🗑"
 
-# Clean object files (*.o) and the binary file; 
 re: fclean all	
 	@echo "\n 🔄  ✅ Cleaned and rebuilt everything from 📊 push_swap"
 
-.PHONY:	all bonus clean fclean re
+.PHONY:	all bonus clean fclean re 

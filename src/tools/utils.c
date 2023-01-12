@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:21:11 by antmoren          #+#    #+#             */
-/*   Updated: 2022/12/29 21:38:21 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/01/08 11:30:43 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,6 @@ void	exit_error(t_stack **stack_a, t_stack **stack_b)
 	exit(1);
 }
 
-int	nb_abs(int nb)
-{
-	if (nb < 0)
-		return (nb * -1);
-	return (nb);
-}
-
-int	is_sign(char c)
-{
-	return (c == '+' || c == '-');
-}
-
 int	nbstr_cmp(const char *s1, const char *s2)
 {
 	int	i;
@@ -72,4 +60,15 @@ int	nbstr_cmp(const char *s1, const char *s2)
 		j++;
 	}
 	return ((unsigned char)s1[i] - (unsigned char)s2[j]);
+}
+
+int	is_sorted(t_stack *stack)
+{
+	while (stack->next != NULL)
+	{
+		if (stack->value > stack->next->value)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }

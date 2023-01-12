@@ -6,22 +6,11 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 13:02:32 by antmoren          #+#    #+#             */
-/*   Updated: 2022/12/29 21:38:33 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/01/08 11:22:08 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-int	is_sorted(t_stack *stack)
-{
-	while (stack->next != NULL)
-	{
-		if (stack->value > stack->next->value)
-			return (0);
-		stack = stack->next;
-	}
-	return (1);
-}
 
 void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size)
 {

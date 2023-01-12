@@ -6,7 +6,7 @@
 #    By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/22 10:11:34 by antmoren          #+#    #+#              #
-#    Updated: 2022/12/26 21:23:20 by antmoren         ###   ########.fr        #
+#    Updated: 2023/01/08 11:27:18 by antmoren         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,6 +75,8 @@ SRC	=		ft_isalnum.c				\
 			ft_printf.c					\
 			get_next_line_bonus.c		\
 			get_next_line_utils_bonus.c	\
+			ft_issign.c 				\
+			ft_nbabs.c 					\
 
 
 

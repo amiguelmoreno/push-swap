@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 21:36:00 by antmoren          #+#    #+#             */
-/*   Updated: 2022/12/29 21:09:18 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/01/08 11:49:49 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,19 @@ int					get_stack_size(t_stack *stack);
 
 void				free_stack(t_stack **stack);
 void				exit_error(t_stack **stack_a, t_stack **stack_b);
-int					nb_abs(int nb);
+int					is_sorted(t_stack *stack);
 
 /* Check Input Errors */
 
-int					is_sign(char c);
 int					is_correct_input(char **av);
 int					nbstr_cmp(const char *s1, const char *s2);
+
+/* Cost */
+void				add_cost(t_stack **stack_a, t_stack **stack_b);
+
+/* Make movements*/
+
+void				make_move(t_stack **a, t_stack **b, int cost_a, int cost_b);
+void				make_cheapest_move(t_stack **stack_a, t_stack **stack_b);
 
 #endif

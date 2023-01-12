@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 12:08:33 by antmoren          #+#    #+#             */
-/*   Updated: 2022/12/25 12:33:09 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/01/08 11:27:32 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,10 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
+
+// Extra Added
+
+int					is_sign(char c);
+int					nb_abs(int nb);
 
 #endif

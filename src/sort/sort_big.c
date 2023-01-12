@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 19:19:01 by antmoren          #+#    #+#             */
-/*   Updated: 2022/12/29 21:48:49 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/01/08 11:47:06 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	sort(t_stack **stack_a, t_stack **stack_b)
 	{
 		add_target_position(stack_a, stack_b);
 		add_cost(stack_a, stack_b);
-		do_cheapest_move(stack_a, stack_b);
+		make_cheapest_move(stack_a, stack_b);
 	}
 	if (!is_sorted(*stack_a))
 		shift_stack(stack_a);
