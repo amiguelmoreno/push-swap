@@ -6,22 +6,22 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 14:10:59 by antmoren          #+#    #+#             */
-/*   Updated: 2023/01/27 14:11:20 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/01/30 19:36:01 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	ft_strcmp(char *stack_a, char *stack_b)
+int	ft_strcmp(char *readed, char *functionName)
 {
 	int	i;
 
 	i = 0;
-	if (ft_strlen(stack_a) != ft_strlen(stack_b))
+	if (ft_strlen(readed) != ft_strlen(functionName))
 		return (0);
-	while (stack_a[i])
+	while (readed[i])
 	{
-		if (stack_a[i] != stack_b[i])
+		if (readed[i] != functionName[i])
 			return (0);
 		i++;
 	}
@@ -54,20 +54,19 @@ void	ft_operations(char *line, t_stack **stack_a, t_stack **stack_b)
 		sb(stack_b);
 	else if (ft_strcmp(line, "ss\n"))
 	{
-		sa(stack_a);
-		sb(stack_b);
+		ss(stack_a, stack_b);
 	}
 	else if (ft_strcmp(line, "pa\n"))
 		pa(stack_a, stack_b);
 	else if (ft_strcmp(line, "pb\n"))
-		pb(stack_b, stack_a);
+		pb(stack_a, stack_b);
 	else
 		ft_operations_2(line, stack_a, stack_b);
 }
 
 void	ft_check(t_stack *stack_a, t_stack *stack_b)
 {
-	char *line;
+	char	*line;
 
 	line = get_next_line(0);
 	while (line)

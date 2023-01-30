@@ -6,27 +6,16 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 14:22:23 by antmoren          #+#    #+#             */
-/*   Updated: 2023/01/27 14:15:27 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/01/30 19:35:08 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size)
-{
-	if (stack_size == 2 && !is_sorted(*stack_a))
-		sa(stack_a);
-	else if (stack_size == 3)
-		sort_small(stack_a);
-	else if (stack_size > 3 && !is_sorted(*stack_a))
-		sort(stack_a, stack_b);
-}
-
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	int		stack_size;
 	char	**numbersArray;
 
 	(void)argv;
@@ -47,9 +36,6 @@ int	main(int argc, char **argv)
 		stack_b = NULL;
 		stack_a = fill_stack(argc, argv, 1);
 	}
-	stack_size = get_stack_size(stack_a);
-	add_index(stack_a, stack_size + 1);
-	push_swap(&stack_a, &stack_b, stack_size);
 	ft_check(stack_a, stack_b);
 	free_stack(&stack_a);
 	free_stack(&stack_b);

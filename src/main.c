@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 13:02:32 by antmoren          #+#    #+#             */
-/*   Updated: 2023/01/27 14:10:07 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/01/30 19:17:19 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,11 @@ int	main(int argc, char **argv)
 	stack_size = get_stack_size(stack_a);
 	add_index(stack_a, stack_size + 1);
 	push_swap(&stack_a, &stack_b, stack_size);
+	/* while (stack_a)
+	{
+		ft_printf("%d\n", stack_a->value);
+		stack_a = stack_a->next;
+	} */
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	return (0);
