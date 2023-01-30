@@ -6,7 +6,7 @@
 #    By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/26 13:02:39 by antmoren          #+#    #+#              #
-#    Updated: 2023/01/27 14:13:27 by antmoren         ###   ########.fr        #
+#    Updated: 2023/01/30 20:26:46 by antmoren         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,6 +91,7 @@ clean:
 fclean: clean
 	@make fclean -C $(42LIBRARY)
 	@$(RM) $(NAME)
+	@$(RM) checker
 	@echo "\n 📊 push_swap generated files removed! 🗑"
 
 re: fclean all	
