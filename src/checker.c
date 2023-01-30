@@ -6,90 +6,52 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 14:22:23 by antmoren          #+#    #+#             */
-/*   Updated: 2023/01/12 15:07:42 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/01/27 14:15:27 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	ft_strcmp(char *stack_a, char *stack_b)
+void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size)
 {
-	int	i;
-
-	i = 0;
-	if (ft_strlen(stack_a) != ft_strlen(stack_b))
-		return (0);
-	while (stack_a[i])
-	{
-		if (stack_a[i] != stack_b[i])
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-void	ft_operations_2(char *line, t_stack **stack_a, t_stack **stack_b)
-{
-	if (ft_strcmp(line, "ra\n"))
-		ra(stack_a);
-	else if (ft_strcmp(line, "rb\n"))
-		rb(stack_b);
-	else if (ft_strcmp(line, "rr\n"))
-		rr(stack_a, stack_b);
-	else if (ft_strcmp(line, "rra\n"))
-		rra(stack_a);
-	else if (ft_strcmp(line, "rrb\n"))
-		rrb(stack_b);
-	else if (ft_strcmp(line, "rrr\n"))
-		rrr(stack_a, stack_b);
-	else
-		exit_error(stack_a, stack_b);
-}
-
-void	ft_operations(char *line, t_stack **stack_a, t_stack **stack_b)
-{
-	if (ft_strcmp(line, "sa\n"))
+	if (stack_size == 2 && !is_sorted(*stack_a))
 		sa(stack_a);
-	else if (ft_strcmp(line, "sb\n"))
-		sb(stack_b);
-	else if (ft_strcmp(line, "ss\n"))
-	{
-		sa(stack_a);
-		sb(stack_b);
-	}
-	else if (ft_strcmp(line, "pa\n"))
-		pa(stack_a, stack_b);
-	else if (ft_strcmp(line, "pb\n"))
-		pb(stack_b, stack_a);
-	else
-		ft_operations_2(line, stack_a, stack_b);
-}
-
-void	ft_check(t_stack *stack_a, t_stack *stack_b)
-{
-	char	*line;
-
-	line = get_next_line(0);
-	while (line)
-	{
-		ft_operations(line, &stack_a, &stack_b);
-		free(line);
-		line = get_next_line(0);
-	}
-	if (stack_a && !stack_b && is_sorted(stack_a))
-		write(1, "OK\n", 3);
-	else
-		write(1, "KO\n", 3);
+	else if (stack_size == 3)
+		sort_small(stack_a);
+	else if (stack_size > 3 && !is_sorted(*stack_a))
+		sort(stack_a, stack_b);
 }
 
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+	int		stack_size;
+	char	**numbersArray;
 
-	stack_b = NULL;
-	stack_a = fill_stack(argc, argv);
+	(void)argv;
+	if (argc < 2)
+		return (0);
+	if (argc == 2)
+	{
+		numbersArray = formatArray(argv[1]);
+		if (!is_correct_input(numbersArray, 0))
+			exit_error(NULL, NULL);
+		stack_b = NULL;
+		stack_a = fill_stack(arrLength(numbersArray), numbersArray, 0);
+	}
+	else
+	{
+		if (!is_correct_input(argv, 1))
+			exit_error(NULL, NULL);
+		stack_b = NULL;
+		stack_a = fill_stack(argc, argv, 1);
+	}
+	stack_size = get_stack_size(stack_a);
+	add_index(stack_a, stack_size + 1);
+	push_swap(&stack_a, &stack_b, stack_size);
 	ft_check(stack_a, stack_b);
 	free_stack(&stack_a);
 	free_stack(&stack_b);
+	return (0);
 }

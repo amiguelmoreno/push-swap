@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check-input.c                                      :+:      :+:    :+:   */
+/*   check_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:08:27 by antmoren          #+#    #+#             */
-/*   Updated: 2022/12/28 11:37:18 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/01/27 10:55:57 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ int	arg_is_number(char *av)
 	return (1);
 }
 
-int	have_duplicates(char **av)
+int	have_duplicates(char **av, int starter)
 {
 	int	i;
 	int	j;
 
-	i = 1;
+	i = starter;
 	while (av[i])
 	{
 		j = 1;
@@ -60,13 +60,13 @@ int	arg_is_zero(char *av)
 	return (1);
 }
 
-int	is_correct_input(char **av)
+int	is_correct_input(char **av, int starter)
 {
 	int	i;
 	int	nb_zeros;
 
 	nb_zeros = 0;
-	i = 1;
+	i = starter;
 	while (av[i])
 	{
 		if (!arg_is_number(av[i]))
@@ -78,7 +78,7 @@ int	is_correct_input(char **av)
 	{
 		return (0);
 	}
-	if (have_duplicates(av))
+	if (have_duplicates(av, starter))
 		return (0);
 	return (1);
 }

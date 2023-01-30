@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 21:36:00 by antmoren          #+#    #+#             */
-/*   Updated: 2023/01/08 11:49:49 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/01/27 14:12:38 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct s_stack
 
 /* Init */
 
-t_stack				*fill_stack(int ac, char **av);
+t_stack				*fill_stack(int ac, char **av, int starter);
 void				add_index(t_stack *stack_a, int stack_size);
 
 /* Positions */
@@ -70,16 +70,20 @@ t_stack				*get_stack_bottom(t_stack *stack);
 t_stack				*stack_new(int value);
 void				stack_add_bottom(t_stack **stack, t_stack *new);
 int					get_stack_size(t_stack *stack);
+void				push_swap(t_stack **stack_a, t_stack **stack_b,
+						int stack_size);
 
 /* Utils */
 
 void				free_stack(t_stack **stack);
 void				exit_error(t_stack **stack_a, t_stack **stack_b);
 int					is_sorted(t_stack *stack);
+int					arrLength(char **arr);
+char				**formatArray(char *arr);
 
 /* Check Input Errors */
 
-int					is_correct_input(char **av);
+int					is_correct_input(char **av, int starter);
 int					nbstr_cmp(const char *s1, const char *s2);
 
 /* Cost */
@@ -89,5 +93,14 @@ void				add_cost(t_stack **stack_a, t_stack **stack_b);
 
 void				make_move(t_stack **a, t_stack **b, int cost_a, int cost_b);
 void				make_cheapest_move(t_stack **stack_a, t_stack **stack_b);
+
+/* Checker functions */
+
+int					ft_strcmp(char *stack_a, char *stack_b);
+void				ft_operations_2(char *line, t_stack **stack_a,
+						t_stack **stack_b);
+void				ft_operations(char *line, t_stack **stack_a,
+						t_stack **stack_b);
+void				ft_check(t_stack *stack_a, t_stack *stack_b);
 
 #endif
