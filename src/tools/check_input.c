@@ -6,11 +6,25 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:08:27 by antmoren          #+#    #+#             */
-/*   Updated: 2023/01/27 10:55:57 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/01/31 20:47:50 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+int	have_max_or_min(char **av, int starter)
+{
+	int	i;
+
+	i = starter;
+	while (av[i])
+	{
+		if (ft_atoi(av[i]) > INT_MAX || ft_atoi(av[i]) < INT_MIN)
+			return (1);
+		i++;
+	}
+	return (0);
+}
 
 int	arg_is_number(char *av)
 {
@@ -78,6 +92,8 @@ int	is_correct_input(char **av, int starter)
 	{
 		return (0);
 	}
+	if (have_max_or_min(av, starter))
+		return (0);
 	if (have_duplicates(av, starter))
 		return (0);
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 21:36:00 by antmoren          #+#    #+#             */
-/*   Updated: 2023/01/27 14:12:38 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/01/31 19:33:20 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ void				push_swap(t_stack **stack_a, t_stack **stack_b,
 void				free_stack(t_stack **stack);
 void				exit_error(t_stack **stack_a, t_stack **stack_b);
 int					is_sorted(t_stack *stack);
-int					arrLength(char **arr);
-char				**formatArray(char *arr);
+int					arr_length(char **arr);
+char				**format_array(char *arr);
 
 /* Check Input Errors */
 

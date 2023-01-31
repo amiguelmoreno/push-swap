@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 14:22:23 by antmoren          #+#    #+#             */
-/*   Updated: 2023/01/30 19:35:08 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/01/31 20:51:33 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,17 @@ int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	char	**numbersArray;
+	char	**numbers_array;
 
-	(void)argv;
 	if (argc < 2)
 		return (0);
 	if (argc == 2)
 	{
-		numbersArray = formatArray(argv[1]);
-		if (!is_correct_input(numbersArray, 0))
+		numbers_array = format_array(argv[1]);
+		if (!is_correct_input(numbers_array, 0))
 			exit_error(NULL, NULL);
 		stack_b = NULL;
-		stack_a = fill_stack(arrLength(numbersArray), numbersArray, 0);
+		stack_a = fill_stack(arr_length(numbers_array), numbers_array, 0);
 	}
 	else
 	{

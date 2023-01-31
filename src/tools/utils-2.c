@@ -6,24 +6,23 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 14:06:20 by antmoren          #+#    #+#             */
-/*   Updated: 2023/01/27 14:08:04 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/01/31 19:34:39 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-char	**formatArray(char *arr)
+char	**format_array(char *arr)
 {
 	char	**result;
 
-	//int i = 0;
 	result = ft_split(arr, ' ');
 	return (result);
 }
 
-int	arrLength(char **arr)
+int	arr_length(char **arr)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (arr[i])

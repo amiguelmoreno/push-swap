@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 12:08:33 by antmoren          #+#    #+#             */
-/*   Updated: 2023/01/08 11:27:32 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/01/31 20:06:55 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int					ft_toupper(int c);
 // Pasa un caracter a mayuscula
 int					ft_tolower(int c);
 // Pasa un caracter a minuscula
-int					ft_atoi(const char *str);
+long				ft_atoi(const char *str);
 // https://www.tutorialspoint.com/c_standard_library/c_function_atoi.htm
 char				*ft_strnstr(const char *big, const char *little,
 						size_t len);
