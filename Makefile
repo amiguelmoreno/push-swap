@@ -6,7 +6,7 @@
 #    By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/26 13:02:39 by antmoren          #+#    #+#              #
-#    Updated: 2023/01/30 20:26:46 by antmoren         ###   ########.fr        #
+#    Updated: 2023/02/01 17:14:19 by antmoren         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,10 +49,6 @@ SRCS_CHECKER	= 	checker.c 					\
 					movements/swap.c 			\
 					movements/rotate.c 			\
 					movements/reverse_rotate.c 	\
-					sort/sort_small.c 			\
-					tools/position.c 			\
-					sort/sort_big.c 			\
-					tools/cost.c 				\
 					movements/make_move.c 		\
 					tools/utils-2.c				\
 					tools/checker-utils.c		\
